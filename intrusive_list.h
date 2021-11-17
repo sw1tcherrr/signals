@@ -20,10 +20,6 @@ struct base_list_element {
 
   base_list_element& operator=(base_list_element&& other) noexcept;
 
-  void unlink() noexcept;
-
-  void insert_before(base_list_element* pos);
-
   bool in_list() const noexcept;
 
   ~base_list_element();
@@ -35,6 +31,10 @@ private:
   void move_from(base_list_element& other) noexcept;
 
   static void link(base_list_element* l, base_list_element* r);
+  
+  void unlink() noexcept;
+
+  void insert_before(base_list_element* pos);
 };
 
 template <typename Tag = default_tag>
